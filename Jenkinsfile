@@ -11,9 +11,9 @@ pipeline {
         DOCKERHUB_USERNAME = "jamirul"
         IMAGE_TAG ="latest"
         CONTAINER_NAME = "my-portfolio-container"
-        GITHUB_URL='https://github.com/localhostdev127/my-portfolio.git'
-        SSH_CREDENTIALS_ID = 'remote-ssh-credentials'
-        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials'
+        GITHUB_URL='https://github.com/jamirul-1210/ji-portfolio.git'
+        SSH_CREDENTIALS_ID = 'remote-server-credentials'
+        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials'
         REMOTE_HOST = 'ubuntu@ec2-13-233-139-239.ap-south-1.compute.amazonaws.com'   
     }
     
@@ -32,7 +32,7 @@ pipeline {
         
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url:GITHUB_URL , credentialsId: 'github-credentials' 
+                git branch: 'main', url:GITHUB_URL , credentialsId: DOCKER_CREDENTIALS_ID 
             }
         }
 
@@ -57,7 +57,7 @@ pipeline {
         stage("Docker: Push to DockerHub"){
             steps{
                 
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     sh '''
                         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
                     '''
