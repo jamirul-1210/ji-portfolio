@@ -1,0 +1,27 @@
+---
+const skills = {
+  "Frontend": ["HTML", "CSS", "JavaScript", "React","React-Redux", "TypeScript", "Tailwind CSS", "NextJs","AstroJs"],
+  "Backend": ["Node.js", "Express", "MongoDB", "Socket Io"],
+  "Tools": ["Git", "Docker", "Jenkins","AWS","Nginx"]
+};
+---
+<section id="skills" class="py-20 bg-gray-700/90">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl text-gray-100 font-bold text-center mb-12">Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {Object.entries(skills).map(([category, items]) => (
+        <div>
+          <h3 class="text-xl font-semibold text-gray-200 mb-4">{category}</h3>
+          <ul class="space-y-2">
+            {items.map(skill => (
+              <li class="flex items-center text-gray-400 font-bold">
+                <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  image: string;
+  links: {
+    liveUrl: string;
+    codeUrlbackend?: string;
+    codeUrlfrontend: string;
+  };
+}
+
+const projects: Project[] = [
+  {
+    title: "ChatApp Platform",
+    description: "This is a real-time chat application built using the MERN stack (MongoDB, Express.js, React, and Node.js) and integrated with Socket.IO for seamless, bidirectional communication between users. ",
+    tech: [
+      "React",
+      "Redux",
+      "NextJs",
+      "Node.js",
+      "MongoDB",
+      "Socket Io",
+      "Docker",
+    ],
+    image: "/projects/chatapp.png",
+    links: {
+      liveUrl: "https://chatapp.jamirul.site",
+      codeUrlbackend: "https://github.com/jamirul-1210/chat-app-backend",
+      codeUrlfrontend: "https://github.com/jamirul-1210/chat-app-client",
+    },
+  },
+  {
+    title: "Portfolio Website",
+    description: "This is a dynamic and engaging web application showcasing my skills and experience as a Web Developer. The portfolio app provides a comprehensive overview of my professional journey.",
+    tech: ["Html", "Css", "Javascript", "AstroJs", "Docker"],
+    image: "/projects/portfolio.png",
+    links: {
+      liveUrl: "https://jamirul.site/",
+      codeUrlfrontend: "https://github.com/jamirul-1210/ji-portfolio.git",
+    },
+  },
+];
+---
+
+<section id="projects" class="py-20 bg-gray-900/90">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-200">
+      Featured Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        projects.map((project) => (
+          <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-300">
+              <img class="object-fill h-48 w-full" src={project.image} />
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl text-gray-200 font-semibold mb-2">
+                {project.title}
+              </h3>
+              <p class="text-gray-300 mb-4">{project.description}</p>
+              <div class="my-4 px-1 space-y-2 ">
+                <a
+                  class="text-blue-500 font-bold border text-nowrap mr-2 inline-block border-blue-500 rounded-md py-1 px-3"
+                  href={project.links.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live
+                </a>
+                {project.links.codeUrlbackend ? (
+                  <a
+                    class="text-green-500 font-bold border text-nowrap inline-block mr-2 border-green-500 rounded-md py-1 px-3"
+                    href={project.links.codeUrlbackend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Code Backend
+                  </a>
+                ) : (
+                  ""
+                )}
+                <a
+                  class="text-purple-500 font-bold border text-nowrap inline-block mr-2 border-purple-500 rounded-md py-1 px-3"
+                  href={project.links.codeUrlfrontend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Code Frontend
+                </a>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <span class="px-3 py-1 bg-purple-700 text-sm font-bold text-gray-50 rounded-full">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

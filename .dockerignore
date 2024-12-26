@@ -1,0 +1,31 @@
+# Node modules and logs
+node_modules
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Astro build and temporary files
+dist/
+.cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor-specific files
+*.swp
+*.swo
+*.swn
+*.tmp
+.vscode/
+.idea/
+.DS_Store
+
+# Git-related files
+.git
+.gitignore
+
+# Docker-related files
+Dockerfile
+.dockerignore

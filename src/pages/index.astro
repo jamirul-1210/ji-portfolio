@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Footer from "../components/Footer.astro";
+import Matrix from "../components/Matrix.astro";
+import { info } from "../data/info";
+---
+
+<Layout title={`${info.name} - Portfolio`}>
+  <Header />
+  <main class=" w-screen relative ">
+    <Matrix />
+    <Hero />
+    <About />
+    <Projects />
+    <Skills />
+    <!-- <Contact /> -->
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    overflow-x: hidden;
+  }
+  .bg-gradient {
+    background: linear-gradient(to left, #3333ff, #efff15, #ff0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: bganimation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+  }
+
+  @keyframes bganimation {
+    0%,
+    100% {
+      background-position: 0 0;
+    }
+
+    50% {
+      background-position: 100% 0;
+    }
+  }
+
+  /* scrollbar */
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  .scrollbar::-webkit-scrollbar-track:hover {
+    background: #000000;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #0399ea;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #0399ea;
+  }
+</style>

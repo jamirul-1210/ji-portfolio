@@ -1,0 +1,16 @@
+---
+import { info } from "../data/info";
+
+const currentYear = new Date().getFullYear();
+---
+<footer class=" text-white w-full py-12 bg-black/10 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <div class="flex justify-center space-x-6 mb-6">
+      <a href="https://github.com/jamirul-1210" target="_blank" class="hover:text-indigo-600">GitHub</a>
+      <a href="https://www.linkedin.com/in/jamirul/" target="_blank" class="hover:text-indigo-600">LinkedIn</a>
+      <!-- <a href="https://twitter.com" class="hover:text-indigo-400">Twitter</a> -->
+      <a href="https://www.facebook.com/jamirul.1210" target="_blank" class="hover:text-indigo-600">FaceBook</a>
+    </div>
+    <p>&copy; {currentYear} - {info.name} - All rights reserved.</p>
+  </div>
+</footer
